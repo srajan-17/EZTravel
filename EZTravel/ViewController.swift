@@ -43,57 +43,50 @@ class ViewController: NSViewController {
         let apiKey = "mXqBSjV7MM1Q73zaS7AGI51F2844WeGd"
         var url = "http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
         
-        var origin_input = ""
         if originTextField.stringValue != "" {
-            origin_input = "&origin=\(originTextField.stringValue)"
+            url += "&origin=\(originTextField.stringValue)"
         }
         
-        var dest_input = ""
         if destTextField.stringValue != "" {
-            dest_input = "&destination=\(destTextField.stringValue)"
+            url += "&destination=\(destTextField.stringValue)"
         }
         
-        var depart_input = ""
         if monthTextField.stringValue != "" && dayTextField.stringValue != "" && yearTextField.stringValue != "" && endMonthTextField.stringValue != "" && endDayTextField.stringValue != "" && endYearTextField.stringValue != "" {
-            depart_input = "&departure_date=\(yearTextField.stringValue)-\(monthTextField.stringValue)-\(dayTextField.stringValue)--\(endYearTextField.stringValue)-\(endMonthTextField.stringValue)-\(endDayTextField.stringValue)"
+            url += "&departure_date=\(yearTextField.stringValue)-\(monthTextField.stringValue)-\(dayTextField.stringValue)--\(endYearTextField.stringValue)-\(endMonthTextField.stringValue)-\(endDayTextField.stringValue)"
         }
         else if monthTextField.stringValue != "" && dayTextField.stringValue != "" && yearTextField.stringValue != "" && endMonthTextField.stringValue == "" && endDayTextField.stringValue == "" && endYearTextField.stringValue == "" {
-            depart_input = "&departure_date=\(yearTextField.stringValue)-\(monthTextField.stringValue)-\(dayTextField.stringValue)"
+            url += "&departure_date=\(yearTextField.stringValue)-\(monthTextField.stringValue)-\(dayTextField.stringValue)"
         }
         else if monthTextField.stringValue == "" && dayTextField.stringValue == "" && yearTextField.stringValue == "" && endMonthTextField.stringValue != "" && endDayTextField.stringValue != "" && endYearTextField.stringValue != "" {
-            depart_input = "&departure_date=\(endYearTextField.stringValue)-\(endMonthTextField.stringValue)-\(endDayTextField.stringValue)"
+            url += "&departure_date=\(endYearTextField.stringValue)-\(endMonthTextField.stringValue)-\(endDayTextField.stringValue)"
         }
         
-        var one_way_input = ""
         if (oneWayYesCheck.state.rawValue == 1 && oneWayNoCheck.state.rawValue == 0) || (oneWayYesCheck.state.rawValue == 1 && oneWayNoCheck.state.rawValue == 1) {
-            one_way_input = "&one-way=true"
+            url += "&one-way=true"
         }
         else {
-            one_way_input = "&one-way=false"
+            url += "&one-way=false"
         }
         
-        var duration_input = ""
         if durStartTextField.stringValue != "" && durEndTextField.stringValue != "" {
-            duration_input = "&duration=\(durStartTextField.stringValue)--\(durEndTextField.stringValue)"
+            url += "&duration=\(durStartTextField.stringValue)--\(durEndTextField.stringValue)"
         }
         else if durStartTextField.stringValue != "" && durEndTextField.stringValue == "" {
-            duration_input = "&duration=\(durStartTextField.stringValue)"
+            url += "&duration=\(durStartTextField.stringValue)"
         }
         else if durStartTextField.stringValue == "" && durEndTextField.stringValue != "" {
-            duration_input = "&duration=\(durEndTextField.stringValue)"
+            url += "&duration=\(durEndTextField.stringValue)"
         }
         
-        var direct_input = ""
         if (dirFlightYesCheck.state.rawValue == 1 && dirFlightNoCheck.state.rawValue == 0) || (dirFlightYesCheck.state.rawValue == 1 && dirFlightNoCheck.state.rawValue == 1) {
-            direct_input = "&direct=true"
+            url += "&direct=true"
         }
         else {
-            direct_input = "&direct=false"
+            url += "&direct=false"
         }
         
-        var price_input = ""
         if maxPriceTextField.stringValue != "" {
-            price_input = "&max_price=\(maxPriceTextField.stringValue)"
+            url += "&max_price=\(maxPriceTextField.stringValue)"
         }
         
         
