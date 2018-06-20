@@ -41,7 +41,7 @@ class ViewController: NSViewController {
         
         // call API and print result in new window
         let apiKey = "*"
-        var url = "http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
+        var url = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
         
         if originTextField.stringValue != "" {
             url += "&origin=\(originTextField.stringValue)"
@@ -89,23 +89,68 @@ class ViewController: NSViewController {
             url += "&max_price=\(maxPriceTextField.stringValue)"
         }
         
+        print("\nURL = \(url)\n")
         
-        print(url)
-        
+        /*
         let urlString = URL(string: url)
         
         if let url = urlString {
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url) {
+                (data, response, error) in
                 if error != nil {
-                    print(error!)
-                } else {
+                    print("\n\nerror = \(error!)\n\n")
+                }
+                else {
                     if let usableData = data {
-                        print(usableData) //JSONSerialization
+                        print("\n\nusableDate = \(usableData)\n\n")
                     }
                 }
             }
             task.resume()
+        }*/
+        
+        // Create NSURL Ibject
+        let myUrl = NSURL(string: url);
+        
+        // Creaste URL Request
+        let request = NSMutableURLRequest(url:myUrl! as URL);
+        
+        // Set request HTTP method to GET. It could be POST as well
+        request.httpMethod = "GET"
+        
+        // Excute HTTP Request
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("\nerror=\(String(describing: error))\n")
+                return
+            }
+            
+            // Print out response string
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("\nresponseString = \(String(describing: responseString))\n")
+            
+            
+            // Convert server json response to NSDictionary
+            do {
+                if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                    
+                    // Print out dictionary
+                    print("\nJSON = \(convertedJsonIntoDict)\n")
+                    
+                }
+            } catch let error as NSError {
+                print("\nerror = \(error.localizedDescription)\n")
+            }
+            
         }
+        
+        task.resume()
+        
+        
         
     }
     
