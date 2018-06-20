@@ -40,7 +40,7 @@ class ViewController: NSViewController {
     @IBAction func submitButton(_ sender: NSButton) {
         
         // call API and print result in new window
-        let apiKey = "mXqBSjV7MM1Q73zaS7AGI51F2844WeGd"
+        let apiKey = "*"
         var url = "http://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
         
         if originTextField.stringValue != "" {
@@ -91,6 +91,22 @@ class ViewController: NSViewController {
         
         
         print(url)
+        
+        let urlString = URL(string: url)
+        
+        if let url = urlString {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let usableData = data {
+                        print(usableData) //JSONSerialization
+                    }
+                }
+            }
+            task.resume()
+        }
+        
     }
     
     
