@@ -36,14 +36,11 @@ class ResultsController: NSViewController {
     @IBOutlet weak var label24: NSTextField!
     @IBOutlet weak var label25: NSTextField!
     
-    var json = {
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
     }
     
 }

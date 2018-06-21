@@ -121,10 +121,6 @@ class ViewController: NSViewController {
                 return
             }
             
-            //let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            //print("\nresponseString = \(String(describing: responseString))\n")
-            
-            
             // Convert server JSON response to NSDictionary
             do {
                 if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
