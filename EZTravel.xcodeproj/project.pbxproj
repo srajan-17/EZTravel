@@ -11,6 +11,7 @@
 		898DE14020D7284D006C81C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DE13F20D7284D006C81C6 /* ViewController.swift */; };
 		898DE14220D7284F006C81C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 898DE14120D7284F006C81C6 /* Assets.xcassets */; };
 		898DE14520D7284F006C81C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898DE14320D7284F006C81C6 /* Main.storyboard */; };
+		89E5299A20DB192B005349B9 /* ResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5299920DB192B005349B9 /* ResultsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		898DE14420D7284F006C81C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		898DE14620D7284F006C81C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898DE14720D7284F006C81C6 /* EZTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EZTravel.entitlements; sourceTree = "<group>"; };
+		89E5299920DB192B005349B9 /* ResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				898DE13D20D7284D006C81C6 /* AppDelegate.swift */,
 				898DE13F20D7284D006C81C6 /* ViewController.swift */,
+				89E5299920DB192B005349B9 /* ResultsController.swift */,
 				898DE14120D7284F006C81C6 /* Assets.xcassets */,
 				898DE14320D7284F006C81C6 /* Main.storyboard */,
 				898DE14620D7284F006C81C6 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				898DE14020D7284D006C81C6 /* ViewController.swift in Sources */,
 				898DE13E20D7284D006C81C6 /* AppDelegate.swift in Sources */,
+				89E5299A20DB192B005349B9 /* ResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

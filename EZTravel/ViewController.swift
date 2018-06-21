@@ -39,6 +39,20 @@ class ViewController: NSViewController {
     }
     @IBAction func submitButton(_ sender: NSButton) {
         
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showResults"), sender: nil)
+        
+    }
+    
+    
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier!.rawValue == "showResults" {
+            callAPI()
+        }
+        
+    }
+    
+    func callAPI() {
         // call API and print result in new window
         let apiKey = "*"
         var url = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
@@ -91,50 +105,27 @@ class ViewController: NSViewController {
         
         print("\nURL = \(url)\n")
         
-        /*
-        let urlString = URL(string: url)
-        
-        if let url = urlString {
-            let task = URLSession.shared.dataTask(with: url) {
-                (data, response, error) in
-                if error != nil {
-                    print("\n\nerror = \(error!)\n\n")
-                }
-                else {
-                    if let usableData = data {
-                        print("\n\nusableDate = \(usableData)\n\n")
-                    }
-                }
-            }
-            task.resume()
-        }*/
-        
-        // Create NSURL Ibject
+        // Get JSON
         let myUrl = NSURL(string: url);
         
-        // Creaste URL Request
         let request = NSMutableURLRequest(url:myUrl! as URL);
         
-        // Set request HTTP method to GET. It could be POST as well
         request.httpMethod = "GET"
         
-        // Excute HTTP Request
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             
-            // Check for error
             if error != nil
             {
                 print("\nerror=\(String(describing: error))\n")
                 return
             }
             
-            // Print out response string
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("\nresponseString = \(String(describing: responseString))\n")
+            //let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            //print("\nresponseString = \(String(describing: responseString))\n")
             
             
-            // Convert server json response to NSDictionary
+            // Convert server JSON response to NSDictionary
             do {
                 if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
                     
@@ -149,13 +140,8 @@ class ViewController: NSViewController {
         }
         
         task.resume()
-        
-        
-        
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
