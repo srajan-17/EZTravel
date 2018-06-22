@@ -32,6 +32,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var dirFlightYesCheck: NSButton!
     @IBOutlet weak var dirFlightNoCheck: NSButton!
     
+    var json = NSDictionary()
+    
     @IBAction func iataCodeButton(_ sender: NSButton) {
         if let url = URL(string: "http://www.nationsonline.org/oneworld/IATA_Codes/IATA_Code_A.htm"), NSWorkspace.shared.open(url) {
             print("default browser was successfully opened")
@@ -120,6 +122,8 @@ class ViewController: NSViewController {
                     
                     // Print out dictionary
                     print("\nJSON = \(convertedJsonIntoDict)\n")
+                    self.json = convertedJsonIntoDict
+                    print(self.json)
                     
                 }
             } catch let error as NSError {
@@ -129,6 +133,10 @@ class ViewController: NSViewController {
         }
         
         task.resume()
+    }
+    
+    func getResults() {
+        
     }
     
     override func viewDidLoad() {

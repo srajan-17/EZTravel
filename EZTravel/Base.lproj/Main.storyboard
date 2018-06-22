@@ -811,6 +811,30 @@
                     </view>
                     <connections>
                         <outlet property="label1" destination="cxj-Ho-SUl" id="acl-Up-046"/>
+                        <outlet property="label10" destination="Kfg-Xc-dF9" id="oil-iq-sQd"/>
+                        <outlet property="label11" destination="lEW-j9-pTw" id="qOk-xk-FvP"/>
+                        <outlet property="label12" destination="f6d-bD-2CV" id="ckp-0W-y4l"/>
+                        <outlet property="label13" destination="GG3-9K-qOh" id="ydx-PO-efX"/>
+                        <outlet property="label14" destination="WTU-av-6n5" id="a3g-zk-VTk"/>
+                        <outlet property="label15" destination="IxS-Xu-DX6" id="bzY-bb-OeB"/>
+                        <outlet property="label16" destination="Vzb-8P-ySM" id="tHP-bF-Wcj"/>
+                        <outlet property="label17" destination="Fxi-ZO-PQr" id="xI3-9x-pMt"/>
+                        <outlet property="label18" destination="SrC-hK-qbT" id="Ct3-CK-mVW"/>
+                        <outlet property="label19" destination="JP4-pj-qpi" id="2mt-Cy-uXB"/>
+                        <outlet property="label2" destination="csa-hQ-28P" id="G2q-Xm-tXe"/>
+                        <outlet property="label20" destination="j1N-Oh-Ncg" id="v9c-qU-NNu"/>
+                        <outlet property="label21" destination="huK-Pb-Jkw" id="G50-HU-ueL"/>
+                        <outlet property="label22" destination="jDJ-Nr-t4j" id="mNc-ij-3Xt"/>
+                        <outlet property="label23" destination="Kco-FJ-ueX" id="UrO-Dw-0DI"/>
+                        <outlet property="label24" destination="iju-EK-i0M" id="lYA-g7-CSQ"/>
+                        <outlet property="label25" destination="wzO-fc-9bK" id="kS1-Yb-oTs"/>
+                        <outlet property="label3" destination="tFn-1c-RS8" id="ZAD-03-lwf"/>
+                        <outlet property="label4" destination="W0t-Do-osZ" id="pTz-sm-2Cc"/>
+                        <outlet property="label5" destination="OQB-E0-Mlx" id="2r5-oj-5kV"/>
+                        <outlet property="label6" destination="ZHH-SK-6Va" id="Ifx-sk-Eff"/>
+                        <outlet property="label7" destination="Cvu-y5-osN" id="waZ-yG-JsF"/>
+                        <outlet property="label8" destination="WIA-UD-f6a" id="Q8x-7c-cvY"/>
+                        <outlet property="label9" destination="gtn-n4-x6A" id="iXi-w2-dxe"/>
                     </connections>
                 </viewController>
                 <customObject id="IRd-YN-UcM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
