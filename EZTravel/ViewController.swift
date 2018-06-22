@@ -47,7 +47,7 @@ class ViewController: NSViewController {
     
     func callAPI() {
         // call API and print result in new window
-        let apiKey = "mXqBSjV7MM1Q73zaS7AGI51F2844WeGd"
+        let apiKey = "*"
         var url = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
         
         if originTextField.stringValue != "" {
@@ -133,14 +133,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
 
 

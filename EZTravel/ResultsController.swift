@@ -23,4 +23,8 @@ class ResultsController: NSViewController {
     var str1 = ""
     
     
+    
+    
+    
+    
 }
