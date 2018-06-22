@@ -37,24 +37,17 @@ class ViewController: NSViewController {
             print("default browser was successfully opened")
         }
     }
-    @IBAction func submitButton(_ sender: NSButton) {
-        
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showResults"), sender: nil)
-        
-    }
-    
-    
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier!.rawValue == "showResults" {
-            callAPI()
-        }
-        
+        callAPI()
+        let second = segue.destinationController as! ResultsController
+        second.str1 = "Hello"
     }
+    
     
     func callAPI() {
         // call API and print result in new window
-        let apiKey = "*"
+        let apiKey = "mXqBSjV7MM1Q73zaS7AGI51F2844WeGd"
         var url = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=\(apiKey)"
         
         if originTextField.stringValue != "" {
