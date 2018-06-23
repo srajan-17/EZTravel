@@ -4,4 +4,4 @@
 
 # This project was written using Swift.
 
-```Minor bug: The submit button must be clicked twice for updated results to show. ```
+> Minor bug: The submit button must be clicked twice for updated results to show.
