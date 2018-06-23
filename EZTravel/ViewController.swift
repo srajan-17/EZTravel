@@ -15,11 +15,11 @@ struct FullResults: Decodable {
 }
 
 struct Result: Decodable {
-    let destination: String?
-    let departure_date: String?
-    let return_date: String?
-    let price: String?
-    let airline: String?
+    let destination: String
+    let departure_date: String
+    let return_date: String
+    let price: String
+    let airline: String
 }
 
 class ViewController: NSViewController {
@@ -55,9 +55,45 @@ class ViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        callAPI()
-        let second = segue.destinationController as! ResultsController
-        second.str1 = "Hello"
+        callAPI()                                                           // Gives results variable
+        let second = segue.destinationController as! ResultsController      // Gives variable for second screen
+        print("Amount: \(results.count)")
+        if results.count >= 1 {
+            second.r1 = "\(results[0].destination)"
+            second.r2 = "\(results[0].departure_date)"
+            second.r3 = "\(results[0].return_date)"
+            second.r4 = "\(results[0].price)"
+            second.r5 = "\(results[0].airline)"
+        }
+        if results.count >= 2 {
+            second.r6 = "\(results[1].destination)"
+            second.r7 = "\(results[1].departure_date)"
+            second.r8 = "\(results[1].return_date)"
+            second.r9 = "\(results[1].price)"
+            second.r10 = "\(results[1].airline)"
+        }
+        if results.count >= 3 {
+            second.r11 = "\(results[2].destination)"
+            second.r12 = "\(results[2].departure_date)"
+            second.r13 = "\(results[2].return_date)"
+            second.r14 = "\(results[2].price)"
+            second.r15 = "\(results[2].airline)"
+        }
+        if results.count >= 4 {
+            second.r16 = "\(results[3].destination)"
+            second.r17 = "\(results[3].departure_date)"
+            second.r18 = "\(results[3].return_date)"
+            second.r19 = "\(results[3].price)"
+            second.r20 = "\(results[3].airline)"
+        }
+        if results.count >= 5 {
+            second.r21 = "\(results[4].destination)"
+            second.r22 = "\(results[4].departure_date)"
+            second.r23 = "\(results[4].return_date)"
+            second.r24 = "\(results[4].price)"
+            second.r25 = "\(results[4].airline)"
+        }
+        
     }
     
     
@@ -133,9 +169,8 @@ class ViewController: NSViewController {
             
             // Convert server JSON response to NSDictionary
             do {
-                
                 let fullResults = try JSONDecoder().decode(FullResults.self, from: data)
-                self.results = fullResults.results
+                self.results = fullResults.results          // Works
                 
             } catch let error as NSError {
                 print("\nerror = \(error.localizedDescription)\n")
@@ -146,14 +181,9 @@ class ViewController: NSViewController {
         task.resume()
     }
     
-    func getResults() {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
+    
 }
 
