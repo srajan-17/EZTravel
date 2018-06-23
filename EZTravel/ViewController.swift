@@ -8,6 +8,20 @@
 
 import Cocoa
 
+struct FullResults: Decodable {
+    let origin: String?
+    let currency: String?
+    let results: [Result]
+}
+
+struct Result: Decodable {
+    let destination: String
+    let departure_date: String
+    let return_date: String
+    let price: String
+    let airline: String
+}
+
 class ViewController: NSViewController {
     
     @IBOutlet weak var originTextField: NSTextField!
@@ -115,17 +129,18 @@ class ViewController: NSViewController {
                 print("\nerror=\(String(describing: error))\n")
                 return
             }
+            guard let data = data else { return }
             
             // Convert server JSON response to NSDictionary
             do {
-                if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                    
-                    // Print out dictionary
-                    print("\nJSON = \(convertedJsonIntoDict)\n")
-                    self.json = convertedJsonIntoDict
-                    print(self.json)
-                    
-                }
+                
+                let fullResults = try JSONDecoder().decode(FullResults.self, from: data)
+                print(fullResults.results[0].airline)
+                print(fullResults.results[1].departure_date)
+                print(fullResults.results[2].destination)
+                
+                
+                
             } catch let error as NSError {
                 print("\nerror = \(error.localizedDescription)\n")
             }
