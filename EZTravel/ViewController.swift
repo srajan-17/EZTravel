@@ -15,11 +15,11 @@ struct FullResults: Decodable {
 }
 
 struct Result: Decodable {
-    let destination: String
-    let departure_date: String
-    let return_date: String
-    let price: String
-    let airline: String
+    let destination: String?
+    let departure_date: String?
+    let return_date: String?
+    let price: String?
+    let airline: String?
 }
 
 class ViewController: NSViewController {
@@ -46,7 +46,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var dirFlightYesCheck: NSButton!
     @IBOutlet weak var dirFlightNoCheck: NSButton!
     
-    var json = NSDictionary()
+    var results = [Result]()
     
     @IBAction func iataCodeButton(_ sender: NSButton) {
         if let url = URL(string: "http://www.nationsonline.org/oneworld/IATA_Codes/IATA_Code_A.htm"), NSWorkspace.shared.open(url) {
@@ -135,11 +135,7 @@ class ViewController: NSViewController {
             do {
                 
                 let fullResults = try JSONDecoder().decode(FullResults.self, from: data)
-                print(fullResults.results[0].airline)
-                print(fullResults.results[1].departure_date)
-                print(fullResults.results[2].destination)
-                
-                
+                self.results = fullResults.results
                 
             } catch let error as NSError {
                 print("\nerror = \(error.localizedDescription)\n")
