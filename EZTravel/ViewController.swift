@@ -57,7 +57,7 @@ class ViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         callAPI()                                                           // Gives results variable
         let second = segue.destinationController as! ResultsController      // Gives variable for second screen
-        print("Amount: \(results.count)")
+        print("In prepare segue, size = \(self.results.count)")
         if results.count >= 1 {
             second.r1 = "\(results[0].destination)"
             second.r2 = "\(results[0].departure_date)"
@@ -95,7 +95,6 @@ class ViewController: NSViewController {
         }
         
     }
-    
     
     func callAPI() {
         // call API and print result in new window
@@ -148,7 +147,7 @@ class ViewController: NSViewController {
             url += "&max_price=\(maxPriceTextField.stringValue)"
         }
         
-        print("\nURL = \(url)\n")
+        //print("\nURL = \(url)\n")
         
         // Get JSON
         let myUrl = NSURL(string: url);
@@ -170,7 +169,8 @@ class ViewController: NSViewController {
             // Convert server JSON response to NSDictionary
             do {
                 let fullResults = try JSONDecoder().decode(FullResults.self, from: data)
-                self.results = fullResults.results          // Works
+                self.results = fullResults.results
+                print("In API, size = \(self.results.count)")
                 
             } catch let error as NSError {
                 print("\nerror = \(error.localizedDescription)\n")
