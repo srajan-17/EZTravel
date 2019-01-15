@@ -5,3 +5,4 @@
 # This project was written using Swift.
 
 > Minor bug: The submit button must be clicked twice for updated results to show.
+> Notice: The Amadeus Travel Innovation Sandbox will be unavailable as of February 15, 2019.
